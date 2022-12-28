@@ -26,7 +26,7 @@ def main():
     # Check for newer version
 
     try:
-        r = requests.get("")
+        r = requests.get("https://raw.githubusercontent.com/fhudint/CreamPyTools/main/CreamPy.py")
 
         remote_version = str(re.findall('__version__ = "(.*)"'), r.text[0])
         local_version = __version__
