@@ -2,16 +2,17 @@
 
 from argparse import ArgumentParser, RawDescriptionHelpFormatter
 
+import platform
 import requests
 import re
 
 module_name = "CreamPyTools: Great System assisten program"
-__version__ = "0.1.2"
+__version__ = "0.0.2"
 
 def main():
-    version_string = f"%(prog)s {__version__}\n" #+ \
-                    #  f"{requests.__description__}:  {requests.__version__}\n" + \
-                    #  f"Python:  {platform.python_version()}"
+    version_string = f"%(prog)s {__version__}\n" + \
+                     f"{requests.__description__}:  {requests.__version__}\n" + \
+                     f"Python:  {platform.python_version()}"
 
     parser = ArgumentParser(formatter_class=RawDescriptionHelpFormatter, 
                             description=f"{module_name} (Version {__version__})" )
@@ -23,7 +24,7 @@ def main():
 
     args = parser.parse_args()
 
-    # Check for newer version
+    # Check for newer version of CreamPyTools
 
     try:
         r = requests.get("https://raw.githubusercontent.com/fhudint/CreamPyTools/main/CreamPy.py")
@@ -33,11 +34,12 @@ def main():
 
         if remote_version != local_version:
             print("Update Available!\n" +
-                  f"You are running version {local_version}. Version {remote_version} \
-                  is available at https://github.com/fhudint/CreamPyTools.git")
+                  f"You are running version {local_version}.\n" +
+                  f"Version {remote_version} is available at https://github.com/fhudint/CreamPyTools")
 
     except Exception as error:
         print(f"A problem occurred while checking for an update: {error}")
 
 if __name__ == "__main__":
     main()
+    # Notify caller that all queries are finished.
