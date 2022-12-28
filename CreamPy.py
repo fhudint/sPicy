@@ -6,7 +6,7 @@ import requests
 import re
 
 module_name = "CreamPyTools: Great System assisten program"
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 def main():
     version_string = f"%(prog)s {__version__}\n" #+ \
