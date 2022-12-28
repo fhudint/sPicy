@@ -22,6 +22,10 @@ def main():
                         help="Display version information and dependencies."
                         )
 
+    parser.add_argument("add-schedule", dest="add_schedule",
+                        action="store_true",
+                        help="Add schedule to Great")
+
     args = parser.parse_args()
 
     # Check for newer version of CreamPyTools
