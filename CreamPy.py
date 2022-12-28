@@ -5,6 +5,7 @@ from argparse import ArgumentParser, RawDescriptionHelpFormatter
 import platform
 import requests
 import re
+import sys
 
 module_name = "CreamPyTools: Great System assisten program"
 __version__ = "0.0.2"
@@ -22,9 +23,9 @@ def main():
                         help="Display version information and dependencies."
                         )
 
-    parser.add_argument("add-schedule", dest="add_schedule",
-                        action="store_true",
-                        help="Add schedule to Great")
+    # parser.add_argument("add-schedule", dest="add_schedule",
+    #                     action="store_true",
+    #                     help="Add schedule to Great")
 
     args = parser.parse_args()
 
@@ -43,6 +44,13 @@ def main():
 
     except Exception as error:
         print(f"A problem occurred while checking for an update: {error}")
+
+    python_version = sys.version.split()[0]
+    
+    if sys.version_info < (4, 6):
+        print("Sherlock requires Python 3.6+\nYou are using Python %s, which is not supported by Sherlock" % (python_version))
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
