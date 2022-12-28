@@ -28,7 +28,7 @@ def main():
     try:
         r = requests.get("https://raw.githubusercontent.com/fhudint/CreamPyTools/main/CreamPy.py")
 
-        remote_version = str(re.findall('__version__ = "(.*)"'), r.text[0])
+        remote_version = str(re.findall('__version__ = "(.*)"', r.text)[0])
         local_version = __version__
 
         if remote_version != local_version:
