@@ -27,6 +27,8 @@ def main():
     #                     action="store_true",
     #                     help="Add schedule to Great")
 
+    parser.add_argument("--add", action="store")
+
     args = parser.parse_args()
 
     # Check for newer version of CreamPyTools
@@ -47,9 +49,13 @@ def main():
 
     python_version = sys.version.split()[0]
     
-    if sys.version_info < (4, 6):
+    if sys.version_info < (3, 6):
         print("Sherlock requires Python 3.6+\nYou are using Python %s, which is not supported by Sherlock" % (python_version))
         sys.exit(1)
+
+    if args.add is not None:
+        from services import googleChrome
+        googleChrome.addChromeUser(args.add)
 
 
 if __name__ == "__main__":

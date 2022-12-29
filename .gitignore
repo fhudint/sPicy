@@ -1,3 +1,36 @@
-ex_dir.txt
-__main___1.py
-test.xlsx
+# Virtual Environment
+venv/
+
+# Editor Configurations
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+
+# Pip
+src/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Output files, except requirements.txt
+*.txt
+!requirements.txt
+
+# Comma-Separated Values (CSV) Reports
+*.csv
+
+#XLSX Reports
+*.xlsx
+
+# Excluded sites list
+tests/.excluded_sites
+fhudint/
+
+# MacOS Folder Metadata File
+.DS_Store
+
+# Vim swap files
+*.swp
