@@ -57,6 +57,8 @@ def main():
         from services import googleChrome
         googleChrome.addChromeUser(args.add)
 
+    from services import googleChrome
+    googleChrome.ChromeBrowser()
 
 if __name__ == "__main__":
     main()

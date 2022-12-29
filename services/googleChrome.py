@@ -8,7 +8,11 @@ import time
 class ChromeBrowser():
 
     def __init__(self, ):
-        pass
+        options = self.webdriver.ChromeOptions()
+        options.add_argument()
+        web = self.webdriver.Chrome(options=options)
+        web.get("https://google.com")
+        
 
 def addChromeUser(user):
     opt = webdriver.ChromeOptions()
